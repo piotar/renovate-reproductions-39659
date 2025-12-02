@@ -1,17 +1,19 @@
-# minimal-reproduction-template
+# 39659
 
-First, read the [Renovate minimal reproduction instructions](https://github.com/renovatebot/renovate/blob/main/docs/development/minimal-reproductions.md).
+Running on Self-hosted Renovate(42.27.5) with custom global configuration.
 
-Then replace the current `h1` with the Renovate Issue/Discussion number.
 
 ## Current behavior
 
-Explain the current behavior here.
+The `extends` property from the repository-provided config file is not migrated correctly when its type is a simple string.
+
+The specification already specifies the correct type accepted by `extends`, i.e. a string array(https://docs.renovatebot.com/configuration-options/#extends), but there is a migrator(https://github.com/renovatebot/renovate/blob/main/lib/config/migrations/custom/extends-migration.ts) for this, so any logic modify `extends` before the migrator is incorrect.
+
 
 ## Expected behavior
 
-Explain the expected behavior here.
+The `extends` property will be correctly migrated from string type to string array.
 
 ## Link to the Renovate issue or Discussion
 
-Put your link to the Renovate issue or Discussion here.
+https://github.com/renovatebot/renovate/discussions/39659

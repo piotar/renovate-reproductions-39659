@@ -1,1 +1,3 @@
-{}
+{
+    "extends": "some-custom-preset"
+}
